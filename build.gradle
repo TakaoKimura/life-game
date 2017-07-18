@@ -1,0 +1,50 @@
+apply plugin: "java"
+apply plugin: "application"
+apply plugin: 'jacoco'
+
+repositories {
+  mavenCentral()
+}
+
+sourceSets {
+  main {
+    java {
+      srcDir 'src'
+    }
+  }
+  test {
+    java {
+      srcDir 'test/unit'
+      srcDir 'test/helper'
+    }
+  }
+}
+
+dependencies {
+  testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+test {
+  testLogging.showStandardStreams = true
+  testLogging {
+    exceptionFormat = 'full'
+  }
+}
+
+compileJava {
+  gradle.projectsEvaluated {
+    if (project.hasProperty('warn')) {
+      options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+    }
+  }
+  options.encoding = 'UTF-8'
+}
+
+run {
+  if (project.hasProperty('args')) {
+    args project.args.split('\\s+')
+  }
+}
+
+mainClassName = 'Main'
+test.dependsOn 'cleanTest'
