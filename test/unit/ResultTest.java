@@ -18,14 +18,14 @@ public class ResultTest {
   public void カウントが0なら死ぬ() {
     setUp(true, 0);
     result.apply();
-    assertFalse(cell.getState());
+    assertFalse(cell.isAlive());
   }
 
   @Test
   public void カウントが1なら死ぬ() {
     setUp(true, 1);
     result.apply();
-    assertFalse(cell.getState());
+    assertFalse(cell.isAlive());
   }
 
   @Test
@@ -33,27 +33,27 @@ public class ResultTest {
     setUp(false, 2);
     result.apply();
     result.apply();
-    assertFalse(cell.getState());
+    assertFalse(cell.isAlive());
   }
 
   @Test
   public void カウントが3なら誕生する() {
     setUp(false, 3);
     result.apply();
-    assertTrue(cell.getState());
+    assertTrue(cell.isAlive());
   }
 
   @Test
   public void カウントが4なら死ぬ() {
     setUp(true, 4);
     result.apply();
-    assertFalse(cell.getState());
+    assertFalse(cell.isAlive());
   }
 
   @Test
   public void カウントが4以上なら死ぬ() {
     setUp(true, 5);
     result.apply();
-    assertFalse(cell.getState());
+    assertFalse(cell.isAlive());
   }
 }

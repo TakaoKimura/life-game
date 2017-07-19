@@ -9,10 +9,10 @@ public class LifeGameTest {
   @Test
   public void allCellAreDeadAtInitialState() {
     LifeGame game = new LifeGame(2, 2);
-    assertFalse(game.cells().at(1, 1).getState());
-    assertFalse(game.cells().at(2, 1).getState());
-    assertFalse(game.cells().at(1, 2).getState());
-    assertFalse(game.cells().at(2, 2).getState());
+    assertFalse(game.cells().at(1, 1).isAlive());
+    assertFalse(game.cells().at(2, 1).isAlive());
+    assertFalse(game.cells().at(1, 2).isAlive());
+    assertFalse(game.cells().at(2, 2).isAlive());
   }
 
   @Test
@@ -36,7 +36,7 @@ public class LifeGameTest {
     game.changeCell(3, 3, true);
 
     game.next();
-    assertFalse(game.cells().at(2, 2).getState());
+    assertFalse(game.cells().at(2, 2).isAlive());
   }
 
   private void testBirth(int targetX, int targetY) {
@@ -47,6 +47,6 @@ public class LifeGameTest {
     game.changeCell(2, 2, true);
     game.changeCell(targetX, targetY, false);
     game.next();
-    assertTrue(game.cells().at(targetX, targetY).getState());
+    assertTrue(game.cells().at(targetX, targetY).isAlive());
   }
 }

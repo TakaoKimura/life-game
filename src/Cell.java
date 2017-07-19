@@ -14,10 +14,6 @@ class Cell {
     this.state = state;
   }
 
-  boolean getState() {
-    return state;
-  }
-
   int getX() {
     return x;
   }
