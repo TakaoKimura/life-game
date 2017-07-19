@@ -5,13 +5,13 @@ class Cells {
 
   private List<Cell> cells = new ArrayList<Cell>();
 
-  boolean at(int x, int y) {
+  Cell at(int x, int y) {
     for(Cell cell : cells) {
       if(cell.isAt(x, y)) {
-        return cell.isAlive();
+        return cell;
       }
     }
-    return false;
+    return null;
   }
 
   void add(Cell cell) {

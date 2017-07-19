@@ -10,8 +10,13 @@ class Cell {
     this.state = state;
   }
 
+  boolean getState() {
+    return state;
+  }
+
   boolean isAt(int x, int y) {
-    return this.x == x && this.y == y;
+    return true;
+    //return this.x == x && this.y == y;
   }
 
   boolean isAlive() {
