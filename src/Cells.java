@@ -20,37 +20,13 @@ class Cells {
 
   void update() {
     List<Result> results = new ArrayList<Result>();
+    CellComparator comparator = new CellComparator(this);
     for(Cell target : cells) {
-      int countOfAlive = 0;
-      for(int x = -1; x < 2; x++) {
-        for(int y = -1; y < 2; y++) {
-          Cell cell = findCell(target.getX() + x, target.getY() + y);
-          if(cell != target && cell.isAlive()) {
-            countOfAlive++;
-          }
-        }
-      }
-      results.add(new Result(target, countOfAlive));
+      results.add(comparator.compare(target));
     }
     for(Result result : results) {
-      if(result.countOfAlive == 3) {
-        result.target.setState(true);
-      } else if(result.countOfAlive == 4) {
-        result.target.setState(false);
-      }
+      result.apply();
     }
-  }
-
-  private Cell findCell(int x, int y) {
-    Cell cell = at(x, y);
-    if(cell == null) {
-      return nullCell();
-    }
-    return cell;
-  }
-
-  private Cell nullCell() {
-    return new Cell(0, 0, false);
   }
 
   void changeCell(int x, int y, boolean state) {
@@ -59,17 +35,6 @@ class Cells {
         cell.setState(state);
         return;
       }
-    }
-  }
-
-  private class Result {
-
-    Cell target;
-    int countOfAlive;
-
-    Result(Cell target, int countOfAlive) {
-      this.target = target;
-      this.countOfAlive = countOfAlive;
     }
   }
 }
