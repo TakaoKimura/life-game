@@ -2,10 +2,11 @@ import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class LifeGameTest {
+public class CellsTest {
 
   @Test
   public void allCellAreDeadAtInitialState() {
+    Cells cells = CellCreater.create(2, 2);
     LifeGame game = new LifeGame(2, 2);
     assertFalse(game.cells().at(1, 1).isAlive());
     assertFalse(game.cells().at(2, 1).isAlive());
@@ -25,26 +26,27 @@ public class LifeGameTest {
 
   @Test
   public void deadCellDiesWhenItSorrowndedBy4AlivalCells() {
-    LifeGame game = new LifeGame(3, 3);
-    game.changeCell(2, 2, true);
+    Cells cells = CellCreater.create(3, 3);
 
-    game.changeCell(1, 1, true);
-    game.changeCell(3, 1, true);
-    game.changeCell(1, 3, true);
-    game.changeCell(3, 3, true);
+    cells.changeCell(2, 2, true);
 
-    game.next();
-    assertFalse(game.cells().at(2, 2).isAlive());
+    cells.changeCell(1, 1, true);
+    cells.changeCell(3, 1, true);
+    cells.changeCell(1, 3, true);
+    cells.changeCell(3, 3, true);
+
+    cells.update();
+    assertFalse(cells.at(2, 2).isAlive());
   }
 
   private void testBirth(int targetX, int targetY) {
-    LifeGame game = new LifeGame(2, 2);
-    game.changeCell(1, 1, true);
-    game.changeCell(2, 1, true);
-    game.changeCell(1, 2, true);
-    game.changeCell(2, 2, true);
-    game.changeCell(targetX, targetY, false);
-    game.next();
-    assertTrue(game.cells().at(targetX, targetY).isAlive());
+    Cells cells = CellCreater.create(2, 2);
+    cells.changeCell(1, 1, true);
+    cells.changeCell(2, 1, true);
+    cells.changeCell(1, 2, true);
+    cells.changeCell(2, 2, true);
+    cells.changeCell(targetX, targetY, false);
+    cells.update();
+    assertTrue(cells.at(targetX, targetY).isAlive());
   }
 }
