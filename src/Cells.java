@@ -28,4 +28,8 @@ class Cells {
       result.apply();
     }
   }
+
+  List<Cell> all() {
+    return cells;
+  }
 }

@@ -1,3 +1,6 @@
+import java.util.List;
+import java.util.ArrayList;
+
 public class Main {
 
   public static void main(String[] args) {
@@ -6,22 +9,20 @@ public class Main {
     cells.at(2, 1).setState(true);
     cells.at(3, 2).setState(true);
     cells.at(2, 3).setState(true);
-    cells.update();
-    cells.update();
-    printCell(cells);
-  }
 
-  private static void printCell(Cells cells) {
-    for(int y = 1; y <= 3; y++) {
-      for(int x = 1; x <= 3; x++) {
-        Cell cell = cells.at(x, y);
-        if(cell.isAlive()) {
-          System.out.print('#');
-        } else {
-          System.out.print('*');
-        }
-      }
-      System.out.print('\n');
+    List<CellPresenter> presenters = new ArrayList<CellPresenter>();
+
+    for(Cell cell : cells.all()) {
+      presenters.add(new CellPresenter(cell));
+    }
+    LifeGameFrame frame = new LifeGameFrame(presenters);
+    frame.setVisible(true);
+    while(true) {
+      frame.repaint();
+      cells.update();
+      try{
+        Thread.sleep(1000);
+      } catch (InterruptedException e){}
     }
   }
 }
