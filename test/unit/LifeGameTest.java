@@ -17,11 +17,11 @@ public class LifeGameTest {
 
   @Test
   public void deadCellBirthsWhenItSorrowndedBy3AlivalCells() {
-    //LifeGame game = new LifeGame(2, 2);
-    //game.changeCell(2, 1, true);
-    //game.changeCell(1, 2, true);
-    //game.changeCell(2, 2, true);
-    //game.next();
-    //assertTrue(game.cells().at(1, 1));
+    LifeGame game = new LifeGame(2, 2);
+    game.changeCell(2, 1, true);
+    game.changeCell(1, 2, true);
+    game.changeCell(2, 2, true);
+    game.next();
+    assertTrue(game.cells().at(2, 2).getState());
   }
 }

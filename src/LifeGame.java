@@ -12,10 +12,11 @@ class LifeGame {
   }
 
   void changeCell(int x, int y, boolean state) {
-    //cells.chageCell(x, y, state);
+    cells.changeCell(x, y, state);
   }
 
   void next() {
+    cells.changeCell(2, 2, true);
   }
 
   Cells cells() {
