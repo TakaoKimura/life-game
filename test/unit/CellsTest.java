@@ -5,16 +5,6 @@ import static org.junit.Assert.assertTrue;
 public class CellsTest {
 
   @Test
-  public void allCellAreDeadAtInitialState() {
-    Cells cells = CellCreater.create(2, 2);
-    LifeGame game = new LifeGame(2, 2);
-    assertFalse(game.cells().at(1, 1).isAlive());
-    assertFalse(game.cells().at(2, 1).isAlive());
-    assertFalse(game.cells().at(1, 2).isAlive());
-    assertFalse(game.cells().at(2, 2).isAlive());
-  }
-
-  @Test
   public void deadCellBirthesWhenItSorrowndedBy3AlivalCells_atTheUpperLeft() {
     testBirth(1, 1);
   }

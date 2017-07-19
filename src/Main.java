@@ -1,15 +1,15 @@
 public class Main {
 
   public static void main(String[] args) {
-    LifeGame game = new LifeGame(3, 3);
-    game.changeCell(1, 1, true);
-    game.changeCell(2, 1, true);
-    game.changeCell(3, 2, true);
-    game.changeCell(2, 3, true);
-    game.next();
-    game.next();
-    game.next();
-    printCell(game.cells());
+    Cells cells = CellCreater.create(3, 3);
+    cells.changeCell(1, 1, true);
+    cells.changeCell(2, 1, true);
+    cells.changeCell(3, 2, true);
+    cells.changeCell(2, 3, true);
+    cells.update();
+    cells.update();
+    cells.update();
+    printCell(cells);
   }
 
   private static void printCell(Cells cells) {
