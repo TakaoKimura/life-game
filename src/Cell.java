@@ -18,6 +18,14 @@ class Cell {
     return state;
   }
 
+  int getX() {
+    return x;
+  }
+
+  int getY() {
+    return y;
+  }
+
   boolean isAt(int x, int y) {
     return this.x == x && this.y == y;
   }
