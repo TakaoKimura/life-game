@@ -28,13 +28,4 @@ class Cells {
       result.apply();
     }
   }
-
-  void changeCell(int x, int y, boolean state) {
-    for(Cell cell : cells) {
-      if(cell.isAt(x, y)) {
-        cell.setState(state);
-        return;
-      }
-    }
-  }
 }

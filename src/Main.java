@@ -2,11 +2,10 @@ public class Main {
 
   public static void main(String[] args) {
     Cells cells = CellCreater.create(3, 3);
-    cells.changeCell(1, 1, true);
-    cells.changeCell(2, 1, true);
-    cells.changeCell(3, 2, true);
-    cells.changeCell(2, 3, true);
-    cells.update();
+    cells.at(1, 1).setState(true);
+    cells.at(2, 1).setState(true);
+    cells.at(3, 2).setState(true);
+    cells.at(2, 3).setState(true);
     cells.update();
     cells.update();
     printCell(cells);

@@ -18,12 +18,12 @@ public class CellsTest {
   public void deadCellDiesWhenItSorrowndedBy4AlivalCells() {
     Cells cells = CellCreater.create(3, 3);
 
-    cells.changeCell(2, 2, true);
+    cells.at(2, 2).setState(true);
 
-    cells.changeCell(1, 1, true);
-    cells.changeCell(3, 1, true);
-    cells.changeCell(1, 3, true);
-    cells.changeCell(3, 3, true);
+    cells.at(1, 1).setState(true);
+    cells.at(3, 1).setState(true);
+    cells.at(1, 3).setState(true);
+    cells.at(3, 3).setState(true);
 
     cells.update();
     assertFalse(cells.at(2, 2).isAlive());
@@ -31,11 +31,11 @@ public class CellsTest {
 
   private void testBirth(int targetX, int targetY) {
     Cells cells = CellCreater.create(2, 2);
-    cells.changeCell(1, 1, true);
-    cells.changeCell(2, 1, true);
-    cells.changeCell(1, 2, true);
-    cells.changeCell(2, 2, true);
-    cells.changeCell(targetX, targetY, false);
+    cells.at(1, 1).setState(true);
+    cells.at(2, 1).setState(true);
+    cells.at(1, 2).setState(true);
+    cells.at(2, 2).setState(true);
+    cells.at(targetX, targetY).setState(false);
     cells.update();
     assertTrue(cells.at(targetX, targetY).isAlive());
   }
