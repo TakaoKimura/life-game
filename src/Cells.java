@@ -22,44 +22,16 @@ class Cells {
     List<Result> results = new ArrayList<Result>();
     for(Cell target : cells) {
       int countOfAlive = 0;
-      Cell cell = findCell(target.getX() - 1, target.getY() - 1);
-      if(cell.isAlive()) {
-        countOfAlive++;
+      for(int x = -1; x < 2; x++) {
+        for(int y = -1; y < 2; y++) {
+          Cell cell = findCell(target.getX() + x, target.getY() + y);
+          if(cell != target && cell.isAlive()) {
+            countOfAlive++;
+          }
+        }
       }
-      cell = findCell(target.getX(), target.getY() - 1);
-      if(cell.isAlive()) {
-        countOfAlive++;
-      }
-      cell = findCell(target.getX() + 1, target.getY() - 1);
-      if(cell.isAlive()) {
-        countOfAlive++;
-      }
-
-      cell = findCell(target.getX() - 1, target.getY());
-      if(cell.isAlive()) {
-        countOfAlive++;
-      }
-      cell = findCell(target.getX() + 1, target.getY());
-      if(cell.isAlive()) {
-        countOfAlive++;
-      }
-
-      cell = findCell(target.getX() - 1, target.getY() + 1);
-      if(cell.isAlive()) {
-        countOfAlive++;
-      }
-      cell = findCell(target.getX(), target.getY() + 1);
-      if(cell.isAlive()) {
-        countOfAlive++;
-      }
-      cell = findCell(target.getX() + 1, target.getY() + 1);
-      if(cell.isAlive()) {
-        countOfAlive++;
-      }
-
       results.add(new Result(target, countOfAlive));
     }
-
     for(Result result : results) {
       if(result.countOfAlive == 3) {
         result.target.setState(true);
