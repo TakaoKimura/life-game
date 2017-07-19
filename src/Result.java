@@ -21,6 +21,6 @@ class Result {
   }
 
   private boolean willDead() {
-    return countOfAlive <= 4;
+    return countOfAlive >= 4 || countOfAlive == 0 || countOfAlive == 1;
   }
 }
