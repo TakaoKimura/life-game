@@ -18,6 +18,22 @@ class Cells {
     cells.add(cell);
   }
 
+  void update() {
+    changeCell(1, 1, true);
+    changeCell(2, 2, true);
+    //for(Cell target : cells) {
+    //  Cell cell = findCell();
+    //}
+  }
+
+  //private Cell findCell(int x, int y) {
+  //  Cell cell = at(x, y);
+  //  if(cell != null) {
+  //    return NotExistCell();
+  //  }
+  //  return cell;
+  //}
+
   void changeCell(int x, int y, boolean state) {
     for(Cell cell : cells) {
       if(cell.isAt(x, y)) {

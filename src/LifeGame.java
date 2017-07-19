@@ -16,7 +16,7 @@ class LifeGame {
   }
 
   void next() {
-    cells.changeCell(2, 2, true);
+    cells.update();
   }
 
   Cells cells() {

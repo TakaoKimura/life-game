@@ -16,12 +16,23 @@ public class LifeGameTest {
   }
 
   @Test
-  public void deadCellBirthsWhenItSorrowndedBy3AlivalCells() {
+  public void deadCellBirthsWhenItSorrowndedBy3AlivalCells_atTheUpperLeft() {
+    testBirth(1, 1);
+  }
+
+  @Test
+  public void deadCellBirthsWhenItSorrowndedBy3AlivalCells_atTherUnderRight() {
+    testBirth(2, 2);
+  }
+
+  private void testBirth(int targetX, int targetY) {
     LifeGame game = new LifeGame(2, 2);
+    game.changeCell(1, 1, true);
     game.changeCell(2, 1, true);
     game.changeCell(1, 2, true);
     game.changeCell(2, 2, true);
+    game.changeCell(targetX, targetY, false);
     game.next();
-    assertTrue(game.cells().at(2, 2).getState());
+    assertTrue(game.cells().at(targetX, targetY).getState());
   }
 }
