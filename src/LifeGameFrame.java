@@ -20,7 +20,7 @@ class LifeGameFrame extends JFrame implements ActionListener {
     for(Cell cell : this.cells.all()) {
       presenters.add(new CellPresenter(cell));
     }
-    setBounds(0, 0, 1000, 1000);
+    setBounds(0, 0, 2000, 2000);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.presenters = presenters;
     Button button = new Button("simulation");
