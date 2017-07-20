@@ -11,7 +11,7 @@ class CellPresenter {
 
   void present(Graphics g) {
     if(cell.isAlive()) {
-      g.setColor(Color.BLACK);
+      g.setColor(Color.BLUE);
     } else {
       g.setColor(Color.RED);
     }
