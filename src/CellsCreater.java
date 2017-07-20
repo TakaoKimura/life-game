@@ -1,4 +1,4 @@
-class CellCreater {
+class CellsCreater {
 
   public static Cells create(int width, int height) {
     Cells cells = new Cells();
