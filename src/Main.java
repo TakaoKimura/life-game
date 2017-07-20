@@ -10,19 +10,15 @@ public class Main {
     cells.at(3, 2).setState(true);
     cells.at(2, 3).setState(true);
 
-    List<CellPresenter> presenters = new ArrayList<CellPresenter>();
-
-    for(Cell cell : cells.all()) {
-      presenters.add(new CellPresenter(cell));
-    }
-    LifeGameFrame frame = new LifeGameFrame(presenters);
+    LifeGameFrame frame = new LifeGameFrame(cells);
     frame.setVisible(true);
-    while(true) {
-      frame.repaint();
-      cells.update();
-      try{
-        Thread.sleep(1000);
-      } catch (InterruptedException e){}
-    }
+    //while(true) {
+    //  //frame.getGraphics().fillOval(100, 100, 100, 100);
+    //  frame.repaint();
+    //  cells.update();
+    //  //try{
+    //  //  Thread.sleep(10000);
+    //  //} catch (InterruptedException e){}
+    //}
   }
 }
