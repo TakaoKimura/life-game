@@ -41,19 +41,28 @@ class LifeGameFrame extends JFrame implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent event) {
+    simulate();
+  }
+
+  private synchronized void simulate() {
     canSimulate = true;
-    Thread t = new Thread() {
+    Thread simulator = simulator();
+    simulator.start();
+  }
+
+  private Thread simulator() {
+    Thread thread = new Thread() {
       @Override
       public void run() {
         while(true) {
           paint(getGraphics());
-          try{
+          try {
             Thread.sleep(1000);
-          } catch (InterruptedException e){}
-          cells.update();
+            cells.update();
+          } catch(InterruptedException e) {}
         }
       }
     };
-    t.run();
+    return thread;
   }
 }

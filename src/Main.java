@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Main {
 
   public static void main(String[] args) {
-    Cells cells = CellCreater.create(10, 10);
+    Cells cells = CellCreater.create(50, 50);
     cells.at(3, 2).setState(true);
     cells.at(3, 3).setState(true);
     cells.at(3, 4).setState(true);
