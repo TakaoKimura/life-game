@@ -16,7 +16,7 @@ public class CellsTest {
 
   @Test
   public void deadCellDiesWhenItSorrowndedBy4AlivalCells() {
-    Cells cells = CellCreater.create(3, 3);
+    Cells cells = CellsCreater.create(3, 3);
 
     cells.at(2, 2).setState(true);
 
@@ -30,7 +30,7 @@ public class CellsTest {
   }
 
   private void testBirth(int targetX, int targetY) {
-    Cells cells = CellCreater.create(2, 2);
+    Cells cells = CellsCreater.create(2, 2);
     cells.at(1, 1).setState(true);
     cells.at(2, 1).setState(true);
     cells.at(1, 2).setState(true);

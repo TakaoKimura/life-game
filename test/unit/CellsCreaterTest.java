@@ -5,10 +5,10 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.hamcrest.core.Is.is;
 
-public class CellCreaterTest {
+public class CellsCreaterTest {
 
   public void 起点から横にxこ縦にyこのセルを生成する() {
-    Cells cells = CellCreater.create(2, 2);
+    Cells cells = CellsCreater.create(2, 2);
     assertNotNull(cells.at(1, 1));
     assertNotNull(cells.at(2, 1));
     assertNull(cells.at(3, 1));
@@ -21,7 +21,7 @@ public class CellCreaterTest {
   }
 
   public void デフォルトは全てのCellが死んでいる() {
-    Cells cells = CellCreater.create(2, 2);
+    Cells cells = CellsCreater.create(2, 2);
     assertFalse(cells.at(1, 1).isAlive());
     assertFalse(cells.at(2, 1).isAlive());
     assertFalse(cells.at(1, 2).isAlive());
